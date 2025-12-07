@@ -10,14 +10,24 @@ class Splashscreen extends StatefulWidget {
 
 class _SplashscreenState extends State<Splashscreen>
     with TickerProviderStateMixin {
-    late final AnimationController _controller = AnimationController(duration: const Duration(seconds: 3), vsync: this)..repeat();
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 3),
+    vsync: this,
+  )..repeat();
 
   @override
   void initState() {
     // TODO: implement initState
+
     super.initState();
   }
-  
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +37,26 @@ class _SplashscreenState extends State<Splashscreen>
           mainAxisAlignment: .center,
           crossAxisAlignment: .center,
           children: [
-            AnimatedBuilder(animation: _controller ,
-            child: Container(
-              height: 200,
-              width: 200,
-              child: const Center(
-                child: Image(image: AssetImage("assets/images/virus.png")),
+            AnimatedBuilder(
+              animation: _controller,
+              child: SizedBox(
+                height: 200,
+                width: 200,
+                child: const Center(
+                  
+                  child: Image(image: AssetImage("assets/images/virus.png")),
+                ),
               ),
+              builder: (BuildContext context, Widget? child) {
+                return Transform.rotate(
+                  angle: _controller.value * 2.0 * math.pi,
+                  child: child,
+                );
+              },
             ),
-             builder: (BuildContext context, Widget? child){
-              return Transform.rotate(angle: _controller.value * 2.0 * math.pi, 
-              child: child,);
-            })
+            SizedBox(height: 20),
+            Spacer(),
+            Text("Covid 19 app"),
           ],
         ),
       ),
