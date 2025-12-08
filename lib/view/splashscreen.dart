@@ -33,31 +33,33 @@ class _SplashscreenState extends State<Splashscreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: .center,
-          crossAxisAlignment: .center,
-          children: [
-            AnimatedBuilder(
-              animation: _controller,
-              child: SizedBox(
-                height: 200,
-                width: 200,
-                child: const Center(
-                  
-                  child: Image(image: AssetImage("assets/images/virus.png")),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Spacer(),
+              AnimatedBuilder(
+                animation: _controller,
+                child: const SizedBox(
+                  height: 200,
+                  width: 200,
+                  child: Center(
+                    child: Image(image: AssetImage("assets/images/virus.png")),
+                  ),
                 ),
+                builder: (BuildContext context, Widget? child) {
+                  return Transform.rotate(
+                    angle: _controller.value * 2.0 * math.pi,
+                    child: child,
+                  );
+                },
               ),
-              builder: (BuildContext context, Widget? child) {
-                return Transform.rotate(
-                  angle: _controller.value * 2.0 * math.pi,
-                  child: child,
-                );
-              },
-            ),
-            SizedBox(height: 20),
-            Spacer(),
-            Text("Covid 19 app"),
-          ],
+              const SizedBox(height: 20),
+              const Text("Covid 19 app"),
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );
