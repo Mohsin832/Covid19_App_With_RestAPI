@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:covidapp/constants/uihelper.dart';
+import 'package:covidapp/screen/worldstate.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -17,9 +21,14 @@ class _SplashscreenState extends State<Splashscreen>
 
   @override
   void initState() {
-    // TODO: implement initState
-
     super.initState();
+    Timer(
+      Duration(seconds: 3),
+      () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Worldstate()),
+      ),
+    );
   }
 
   @override
@@ -41,11 +50,11 @@ class _SplashscreenState extends State<Splashscreen>
               const Spacer(),
               AnimatedBuilder(
                 animation: _controller,
-                child: const SizedBox(
+                child:  SizedBox(
                   height: 200,
                   width: 200,
                   child: Center(
-                    child: Image(image: AssetImage("assets/images/virus.png")),
+                    child: Uihelper.customImage(imageURL: "virus.png"),
                   ),
                 ),
                 builder: (BuildContext context, Widget? child) {
@@ -55,8 +64,28 @@ class _SplashscreenState extends State<Splashscreen>
                   );
                 },
               ),
-              const SizedBox(height: 20),
-              const Text("Covid 19 app"),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+              Align(
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    Text(
+                      "Covid-19",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Ticker app",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               const Spacer(),
             ],
           ),
