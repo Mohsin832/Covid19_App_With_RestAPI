@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:covidapp/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -27,6 +25,7 @@ class _WorldstateState extends State<Worldstate> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Covid-19")),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),

@@ -24,7 +24,7 @@ class _SplashscreenState extends State<Splashscreen>
     super.initState();
     Timer(
       Duration(seconds: 3),
-      () => Navigator.push(
+      () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => Worldstate()),
       ),
@@ -50,7 +50,7 @@ class _SplashscreenState extends State<Splashscreen>
               const Spacer(),
               AnimatedBuilder(
                 animation: _controller,
-                child:  SizedBox(
+                child: SizedBox(
                   height: 200,
                   width: 200,
                   child: Center(
