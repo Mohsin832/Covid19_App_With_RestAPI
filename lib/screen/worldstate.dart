@@ -24,11 +24,13 @@ class _WorldstateState extends State<Worldstate> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Covid-19")),
+      appBar: AppBar(title: Text("Covid-19"), backgroundColor: Colors.blue),
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
+            crossAxisAlignment: .start,
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               PieChart(
@@ -40,7 +42,12 @@ class _WorldstateState extends State<Worldstate> with TickerProviderStateMixin {
                 legendOptions: LegendOptions(
                   legendPosition: LegendPosition.left,
                 ),
+                ringStrokeWidth: 15,
+                chartValuesOptions: ChartValuesOptions(
+                  showChartValueBackground: false,
+                ),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             ],
           ),
         ),
