@@ -1,4 +1,4 @@
-import 'package:covidapp/screen/splashscreen.dart';
+import 'package:covidapp/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Splashscreen());
+    return MaterialApp(
+      theme: ThemeData(brightness: Brightness.light, primaryColor: Colors.blue),
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+    );
   }
 }
