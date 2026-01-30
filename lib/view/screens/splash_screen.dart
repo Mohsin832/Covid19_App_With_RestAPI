@@ -60,7 +60,10 @@ class _SplashScreenState extends State<SplashScreen>
           SizedBox(height: MediaQuery.of(context).size.height * 0.08),
           Align(
             alignment: Alignment.center,
-            child: Text("Covid-10 \n tracker app"),
+            child: Text(
+              "Covid-10 \nTracker app",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
