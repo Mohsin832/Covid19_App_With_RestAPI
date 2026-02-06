@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
+import 'package:covidapp/constants/widget.dart';
 import 'package:covidapp/view/screens/world_state.dart';
 import 'package:flutter/material.dart';
 
@@ -60,9 +61,10 @@ class _SplashScreenState extends State<SplashScreen>
           SizedBox(height: MediaQuery.of(context).size.height * 0.08),
           Align(
             alignment: Alignment.center,
-            child: Text(
-              "Covid-10 \nTracker app",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            child: Uihelper.customFont(
+              text: "Covid-19 \nTracker app",
+              fontsize: 33,
+              fontweight: FontWeight.w600,
             ),
           ),
         ],
