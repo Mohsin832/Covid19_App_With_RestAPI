@@ -74,13 +74,20 @@ class _WorldStateState extends State<WorldState> with TickerProviderStateMixin {
                               snapshot.data!.deaths.toString(),
                             ),
                           },
-                          animationDuration: const Duration(milliseconds: 800),
+                          animationDuration: const Duration(seconds: 2),
                           chartType: ChartType.ring,
                           chartRadius: MediaQuery.of(context).size.width / 3.2,
-                          ringStrokeWidth: 22,
+                          ringStrokeWidth: 15,
+
                           chartValuesOptions: ChartValuesOptions(
                             showChartValuesInPercentage: true,
                           ),
+                          colorList: colorlist,
+                        ),
+                        SizedBox(height: 20),
+                        OptionList(
+                          title: "Cases",
+                          trailing: snapshot.data!.cases.toString(),
                         ),
                       ],
                     );
