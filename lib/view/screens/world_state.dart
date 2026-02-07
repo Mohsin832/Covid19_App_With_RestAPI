@@ -1,6 +1,9 @@
 import 'package:covidapp/constants/appcolor.dart';
 import 'package:covidapp/constants/widget.dart';
+import 'package:covidapp/model/worldstatemodel.dart';
+import 'package:covidapp/services/world_state_services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 class WorldState extends StatefulWidget {
@@ -10,13 +13,24 @@ class WorldState extends StatefulWidget {
   State<WorldState> createState() => _WorldStateState();
 }
 
-class _WorldStateState extends State<WorldState> {
+class _WorldStateState extends State<WorldState> with TickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: Duration(seconds: 3),
+  )..repeat();
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.dispose();
+  }
+
   final colorlist = <Color>[
     Appcolor.piecolor1,
     Appcolor.piechart2,
     Appcolor.piechart3,
   ];
-
+  WorldStateServices worldStateServices = WorldStateServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,12 +48,44 @@ class _WorldStateState extends State<WorldState> {
           child: Column(
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-              PieChart(
-                dataMap: const {"Total": 10, "recovered": 5, "Deaths": 5},
-                animationDuration: const Duration(milliseconds: 800),
-                chartType: ChartType.ring,
-                chartRadius: MediaQuery.of(context).size.width / 3.2,
-                ringStrokeWidth: 22,
+              FutureBuilder(
+                future: worldStateServices.fetchWorldStateRecords(),
+                builder: (context, AsyncSnapshot<Worldstatemodel> snapshot) {
+                  if (!snapshot.hasData) {
+                    return Expanded(
+                      flex: 1,
+                      child: SpinKitDoubleBounce(
+                        controller: _controller,
+                        color: Colors.black45,
+                      ),
+                    );
+                  } else {
+                    return Column(
+                      children: [
+                        PieChart(
+                          dataMap: {
+                            "Total": double.parse(
+                              snapshot.data!.cases.toString(),
+                            ),
+                            "recovered": double.parse(
+                              snapshot.data!.recovered.toString(),
+                            ),
+                            "Deaths": double.parse(
+                              snapshot.data!.deaths.toString(),
+                            ),
+                          },
+                          animationDuration: const Duration(milliseconds: 800),
+                          chartType: ChartType.ring,
+                          chartRadius: MediaQuery.of(context).size.width / 3.2,
+                          ringStrokeWidth: 22,
+                          chartValuesOptions: ChartValuesOptions(
+                            showChartValuesInPercentage: true,
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+                },
               ),
             ],
           ),
