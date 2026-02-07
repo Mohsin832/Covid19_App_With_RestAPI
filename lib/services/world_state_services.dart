@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:covidapp/model/worldstatemodel.dart';
 import 'package:covidapp/services/utilities/app_url.dart';
 import 'package:http/http.dart' as http;
