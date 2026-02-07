@@ -2,6 +2,7 @@ import 'package:covidapp/constants/appcolor.dart';
 import 'package:covidapp/constants/widget.dart';
 import 'package:covidapp/model/worldstatemodel.dart';
 import 'package:covidapp/services/world_state_services.dart';
+import 'package:covidapp/view/screens/countries_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -88,6 +89,47 @@ class _WorldStateState extends State<WorldState> with TickerProviderStateMixin {
                         OptionList(
                           title: "Cases",
                           trailing: snapshot.data!.cases.toString(),
+                        ),
+                        OptionList(
+                          title: "Today's Cases",
+                          trailing: snapshot.data!.todayCases.toString(),
+                        ),
+                        OptionList(
+                          title: "Deaths",
+                          trailing: snapshot.data!.deaths.toString(),
+                        ),
+                        OptionList(
+                          title: "Recovered",
+                          trailing: snapshot.data!.recovered.toString(),
+                        ),
+                        OptionList(
+                          title: "Active",
+                          trailing: snapshot.data!.active.toString(),
+                        ),
+                        OptionList(
+                          title: "Affected Countries",
+                          trailing: snapshot.data!.affectedCountries.toString(),
+                        ),
+                        SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CountriesList(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size(300, 30),
+                            backgroundColor: Colors.blue,
+                          ),
+                          child: Uihelper.customFont(
+                            text: "Track countries",
+                            fontsize: 20,
+                            fontweight: FontWeight.normal,
+                            fontColor: Colors.white,
+                          ),
                         ),
                       ],
                     );

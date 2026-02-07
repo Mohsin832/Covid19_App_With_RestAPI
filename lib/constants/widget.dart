@@ -23,10 +23,15 @@ class Uihelper {
     required String text,
     required double fontsize,
     required FontWeight fontweight,
+    Color? fontColor,
   }) {
     return Text(
       text,
-      style: TextStyle(fontSize: fontsize, fontWeight: fontweight),
+      style: TextStyle(
+        fontSize: fontsize,
+        fontWeight: fontweight,
+        color: fontColor ?? Colors.black,
+      ),
     );
   }
 }
