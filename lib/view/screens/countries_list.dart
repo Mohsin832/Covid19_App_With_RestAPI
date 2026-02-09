@@ -19,6 +19,22 @@ class _CountriesListState extends State<CountriesList> {
           fontweight: FontWeight.bold,
         ),
       ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(22.0),
+            child: TextFormField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(22),
+                  borderSide: BorderSide(),
+                  gapPadding: 22,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
