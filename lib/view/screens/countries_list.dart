@@ -1,5 +1,4 @@
 import 'package:covidapp/constants/widget.dart';
-import 'package:covidapp/model/worldstatemodel.dart';
 import 'package:covidapp/services/world_state_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
