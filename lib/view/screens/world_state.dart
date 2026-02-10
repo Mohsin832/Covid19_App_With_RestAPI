@@ -31,7 +31,6 @@ class _WorldStateState extends State<WorldState> with TickerProviderStateMixin {
     Appcolor.piechart2,
     Appcolor.piechart3,
   ];
-  WorldStateServices worldStateServices = WorldStateServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +49,7 @@ class _WorldStateState extends State<WorldState> with TickerProviderStateMixin {
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               FutureBuilder(
-                future: worldStateServices.fetchWorldStateRecords(),
+                future: WorldStateServices.fetchWorldStateRecords(),
                 builder: (context, AsyncSnapshot<Worldstatemodel> snapshot) {
                   if (!snapshot.hasData) {
                     return Expanded(
