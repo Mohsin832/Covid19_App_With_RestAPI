@@ -1,4 +1,5 @@
 import 'package:covidapp/constants/widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CountriesList extends StatefulWidget {
@@ -20,11 +21,13 @@ class _CountriesListState extends State<CountriesList> {
         ),
       ),
       body: Column(
-        children: [
+        children: [ 
           Padding(
-            padding: const EdgeInsets.all(22.0),
+            padding: const EdgeInsets.all(18.0),
             child: TextFormField(
               decoration: InputDecoration(
+                prefixIcon: Icon(CupertinoIcons.search),
+                isDense: true,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(22),
                   borderSide: BorderSide(),
