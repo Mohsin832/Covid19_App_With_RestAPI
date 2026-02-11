@@ -33,7 +33,7 @@ class _CountriesListState extends State<CountriesList> {
                 setState(() {});
               },
               decoration: InputDecoration(
-                prefixIcon: Icon(CupertinoIcons.search),
+                suffixIcon: Icon(CupertinoIcons.search),
                 isDense: true,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(22),
