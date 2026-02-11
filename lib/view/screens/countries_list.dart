@@ -1,5 +1,6 @@
 import 'package:covidapp/constants/widget.dart';
 import 'package:covidapp/services/world_state_services.dart';
+import 'package:covidapp/view/screens/detail_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
@@ -33,8 +34,12 @@ class _CountriesListState extends State<CountriesList> {
                 setState(() {});
               },
               decoration: InputDecoration(
-                suffixIcon: Icon(CupertinoIcons.search),
+                prefixIcon: Icon(CupertinoIcons.search),
                 isDense: true,
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.close),
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(22),
                   borderSide: BorderSide(),
@@ -90,17 +95,30 @@ class _CountriesListState extends State<CountriesList> {
                       if (searchController.text.isEmpty) {
                         return Column(
                           children: [
-                            ListTile(
-                              leading: Image(
-                                height: 55,
-                                width: 55,
-                                image: NetworkImage(
-                                  snapshot.data![index]["countryInfo"]["flag"],
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailScreen(),
+                                  ),
+                                );
+                              },
+                              child: Card(
+                                child: ListTile(
+                                  leading: Image(
+                                    height: 55,
+                                    width: 55,
+                                    image: NetworkImage(
+                                      snapshot
+                                          .data![index]["countryInfo"]["flag"],
+                                    ),
+                                  ),
+                                  title: Text(snapshot.data![index]["country"]),
+                                  trailing: Text(
+                                    snapshot.data![index]["updated"].toString(),
+                                  ),
                                 ),
-                              ),
-                              title: Text(snapshot.data![index]["country"]),
-                              trailing: Text(
-                                snapshot.data![index]["updated"].toString(),
                               ),
                             ),
                           ],
@@ -110,17 +128,30 @@ class _CountriesListState extends State<CountriesList> {
                       )) {
                         return Column(
                           children: [
-                            ListTile(
-                              leading: Image(
-                                height: 55,
-                                width: 55,
-                                image: NetworkImage(
-                                  snapshot.data![index]["countryInfo"]["flag"],
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailScreen(),
+                                  ),
+                                );
+                              },
+                              child: Card(
+                                child: ListTile(
+                                  leading: Image(
+                                    height: 55,
+                                    width: 55,
+                                    image: NetworkImage(
+                                      snapshot
+                                          .data![index]["countryInfo"]["flag"],
+                                    ),
+                                  ),
+                                  title: Text(snapshot.data![index]["country"]),
+                                  trailing: Text(
+                                    snapshot.data![index]["updated"].toString(),
+                                  ),
                                 ),
-                              ),
-                              title: Text(snapshot.data![index]["country"]),
-                              trailing: Text(
-                                snapshot.data![index]["updated"].toString(),
                               ),
                             ),
                           ],
