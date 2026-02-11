@@ -22,7 +22,7 @@ class _CountriesListState extends State<CountriesList> {
         ),
       ),
       body: Column(
-        children: [
+        children: [ 
           Padding(
             padding: const EdgeInsets.all(18.0),
             child: TextFormField(
