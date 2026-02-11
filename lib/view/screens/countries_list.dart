@@ -49,28 +49,31 @@ class _CountriesListState extends State<CountriesList> {
               builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
                 if (!snapshot.hasData) {
                   return Shimmer.fromColors(
-                    baseColor: Colors.grey.shade700,
-                    highlightColor: Colors.grey.shade200,
+                    baseColor: const Color.fromARGB(117, 63, 106, 198),
+                    highlightColor: const Color.fromARGB(101, 63, 106, 198),
                     child: ListView.builder(
                       itemCount: 7,
                       itemBuilder: (context, index) {
                         return Column(
                           children: [
-                            ListTile(
-                              title: Container(
-                                height: 10,
-                                width: 90,
-                                color: Colors.white,
-                              ),
-                              subtitle: Container(
-                                height: 10,
-                                width: 90,
-                                color: Colors.white,
-                              ),
-                              leading: Container(
-                                height: 50,
-                                width: 50,
-                                color: Colors.white,
+                            GestureDetector(
+                              onTap: () {},
+                              child: ListTile(
+                                title: Container(
+                                  height: 10,
+                                  width: 90,
+                                  color: Colors.white,
+                                ),
+                                subtitle: Container(
+                                  height: 10,
+                                  width: 90,
+                                  color: Colors.white,
+                                ),
+                                leading: Container(
+                                  height: 50,
+                                  width: 50,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ],
