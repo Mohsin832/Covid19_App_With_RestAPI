@@ -92,40 +92,10 @@ class _CountriesListState extends State<CountriesList> {
 
                     itemBuilder: (context, index) {
                       String countryName = snapshot.data![index]["country"];
-                      if (searchController.text.isEmpty) {
-                        return Column(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => DetailScreen(),
-                                  ),
-                                );
-                              },
-                              child: Card(
-                                child: ListTile(
-                                  leading: Image(
-                                    height: 55,
-                                    width: 55,
-                                    image: NetworkImage(
-                                      snapshot
-                                          .data![index]["countryInfo"]["flag"],
-                                    ),
-                                  ),
-                                  title: Text(snapshot.data![index]["country"]),
-                                  trailing: Text(
-                                    snapshot.data![index]["updated"].toString(),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        );
-                      } else if (countryName.toLowerCase().contains(
-                        searchController.text.toLowerCase(),
-                      )) {
+                      if (searchController.text.isEmpty ||
+                          countryName.toLowerCase().contains(
+                            searchController.text.toLowerCase(),
+                          )) {
                         return Column(
                           children: [
                             InkWell(
