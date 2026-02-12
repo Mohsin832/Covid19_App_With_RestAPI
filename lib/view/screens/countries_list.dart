@@ -25,6 +25,8 @@ class _CountriesListState extends State<CountriesList> {
         ),
       ),
       body: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.all(18.0),
@@ -36,10 +38,19 @@ class _CountriesListState extends State<CountriesList> {
               decoration: InputDecoration(
                 prefixIcon: Icon(CupertinoIcons.search),
                 isDense: true,
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.close),
+                suffix: SizedBox(
+                  height: 10,
+                  width: 10,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      searchController.clear();
+                      setState(() {});
+                    },
+                    icon: Icon(Icons.close, size: 20),
+                  ),
                 ),
+
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(22),
                   borderSide: BorderSide(),
