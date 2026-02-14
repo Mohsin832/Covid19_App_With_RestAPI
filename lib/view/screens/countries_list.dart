@@ -27,12 +27,14 @@ class _CountriesListState extends State<CountriesList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Uihelper.customFont(
           text: "Countries list",
           fontsize: 22,
           fontweight: FontWeight.bold,
         ),
       ),
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -91,6 +93,7 @@ class _CountriesListState extends State<CountriesList> {
                                 );
                               },
                               child: ListTile(
+                                tileColor: Colors.white,
                                 title: Container(
                                   height: 10,
                                   width: 90,
@@ -136,6 +139,7 @@ class _CountriesListState extends State<CountriesList> {
                               },
                               child: Card(
                                 child: ListTile(
+                                  tileColor: Colors.white,
                                   leading: Image(
                                     height: 55,
                                     width: 55,

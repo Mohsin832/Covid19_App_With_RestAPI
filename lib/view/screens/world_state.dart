@@ -41,7 +41,7 @@ class _WorldStateState extends State<WorldState> with TickerProviderStateMixin {
           fontweight: FontWeight.bold,
         ),
       ),
-
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),

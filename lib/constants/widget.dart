@@ -12,6 +12,7 @@ class OptionList extends StatelessWidget {
           title,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
+        tileColor: Colors.white,
         trailing: Text(trailing),
       ),
     );
