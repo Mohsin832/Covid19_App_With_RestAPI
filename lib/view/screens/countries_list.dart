@@ -133,7 +133,22 @@ class _CountriesListState extends State<CountriesList> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => DetailScreen(),
+                                    builder: (context) => DetailScreen(
+                                      image: snapshot
+                                          .data![index]["countryInfo"]["flag"],
+                                      Name: snapshot.data![index]["country"],
+                                      totalCases:
+                                          snapshot.data![index]["updated"],
+                                      totalDeaths:
+                                          snapshot.data![index]["deaths"],
+                                      totalRecovered:
+                                          snapshot.data![index]["recovered"],
+                                      active: snapshot.data![index]["active"],
+                                      critical: snapshot.data![index]["active"],
+                                      todayRecovered: snapshot
+                                          .data![index]["todayRecovered"],
+                                      test: snapshot.data![index]["tests"],
+                                    ),
                                   ),
                                 );
                               },
