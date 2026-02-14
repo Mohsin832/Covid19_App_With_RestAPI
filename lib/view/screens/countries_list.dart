@@ -15,6 +15,15 @@ class CountriesList extends StatefulWidget {
 class _CountriesListState extends State<CountriesList> {
   TextEditingController searchController = TextEditingController();
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    searchController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -73,7 +82,14 @@ class _CountriesListState extends State<CountriesList> {
                         return Column(
                           children: [
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CountriesList(),
+                                  ),
+                                );
+                              },
                               child: ListTile(
                                 title: Container(
                                   height: 10,
