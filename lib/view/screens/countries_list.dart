@@ -83,32 +83,22 @@ class _CountriesListState extends State<CountriesList> {
                       itemBuilder: (context, index) {
                         return Column(
                           children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => CountriesList(),
-                                  ),
-                                );
-                              },
-                              child: ListTile(
-                                tileColor: Colors.white,
-                                title: Container(
-                                  height: 10,
-                                  width: 90,
-                                  color: Colors.white,
-                                ),
-                                subtitle: Container(
-                                  height: 10,
-                                  width: 90,
-                                  color: Colors.white,
-                                ),
-                                leading: Container(
-                                  height: 50,
-                                  width: 50,
-                                  color: Colors.white,
-                                ),
+                            ListTile(
+                              tileColor: Colors.white,
+                              title: Container(
+                                height: 10,
+                                width: 90,
+                                color: Colors.white,
+                              ),
+                              subtitle: Container(
+                                height: 10,
+                                width: 90,
+                                color: Colors.white,
+                              ),
+                              leading: Container(
+                                height: 50,
+                                width: 50,
+                                color: Colors.white,
                               ),
                             ),
                           ],
@@ -136,7 +126,7 @@ class _CountriesListState extends State<CountriesList> {
                                     builder: (context) => DetailScreen(
                                       image: snapshot
                                           .data![index]["countryInfo"]["flag"],
-                                      Name: snapshot.data![index]["country"],
+                                      name: snapshot.data![index]["country"],
                                       totalCases:
                                           snapshot.data![index]["updated"],
                                       totalDeaths:

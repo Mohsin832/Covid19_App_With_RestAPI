@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
-  String image, Name;
+  String image, name;
   int totalCases,
       totalDeaths,
       totalRecovered,
@@ -12,7 +12,7 @@ class DetailScreen extends StatelessWidget {
   DetailScreen({
     super.key,
     required this.image,
-    required this.Name,
+    required this.name,
     required this.totalCases,
     required this.totalDeaths,
     required this.totalRecovered,
@@ -24,6 +24,24 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text(Name), centerTitle: true));
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white12,
+        title: Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Divider(),
+          Center(
+            child: CircleAvatar(
+              radius: 45,
+              backgroundImage: NetworkImage(image),
+            ),
+          ),
+          // OptionList(title: title, trailing: trailing),
+        ],
+      ),
+    );
   }
 }
