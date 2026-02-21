@@ -1,3 +1,4 @@
+import 'package:covidapp/constants/widget.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -39,7 +40,7 @@ class DetailScreen extends StatelessWidget {
               backgroundImage: NetworkImage(image),
             ),
           ),
-          // OptionList(title: title, trailing: trailing),
+          OptionList(title: "Total Cases", trailing: totalCases.toString()),
         ],
       ),
     );
