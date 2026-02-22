@@ -30,14 +30,16 @@ class DetailScreen extends StatelessWidget {
         backgroundColor: Colors.white12,
         title: Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
       ),
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Divider(),
           Center(
-            child: CircleAvatar(
-              radius: 45,
-              backgroundImage: NetworkImage(image),
+            child: Stack(
+              children: [
+                CircleAvatar(radius: 45, backgroundImage: NetworkImage(image)),
+              ],
             ),
           ),
           OptionList(title: "Total Cases", trailing: totalCases.toString()),
