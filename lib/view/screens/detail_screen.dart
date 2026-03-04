@@ -34,7 +34,6 @@ class DetailScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Divider(),
           Center(
             child: Stack(
               children: [
