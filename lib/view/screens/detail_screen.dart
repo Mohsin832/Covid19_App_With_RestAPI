@@ -36,16 +36,17 @@ class DetailScreen extends StatelessWidget {
         children: [
           Center(
             child: Stack(
+              clipBehavior: Clip.none,
               children: [
-                OptionList(
-                  title: "Total Cases",
-                  trailing: totalCases.toString(),
-                ),
-                Center(
-                  child: Positioned(
-                    
+                SizedBox(height: 45),
+                OptionList(title: "Country Name", trailing: name),
+                Positioned(
+                  top: -45, 
+                  left: 0,
+                  right: 0,
+                  child: Center(
                     child: CircleAvatar(
-                      radius: 45,
+                      radius: 40,
                       backgroundImage: NetworkImage(image),
                     ),
                   ),
@@ -53,6 +54,8 @@ class DetailScreen extends StatelessWidget {
               ],
             ),
           ),
+          OptionList(title: "Total Cases", trailing: totalCases.toString()),
+          OptionList(title: "Total Deaths", trailing: totalDeaths.toString()),
         ],
       ),
     );
