@@ -37,11 +37,22 @@ class DetailScreen extends StatelessWidget {
           Center(
             child: Stack(
               children: [
-                CircleAvatar(radius: 45, backgroundImage: NetworkImage(image)),
+                OptionList(
+                  title: "Total Cases",
+                  trailing: totalCases.toString(),
+                ),
+                Center(
+                  child: Positioned(
+                    
+                    child: CircleAvatar(
+                      radius: 45,
+                      backgroundImage: NetworkImage(image),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
-          OptionList(title: "Total Cases", trailing: totalCases.toString()),
         ],
       ),
     );
