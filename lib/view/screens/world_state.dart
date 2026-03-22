@@ -35,6 +35,7 @@ class _WorldStateState extends State<WorldState> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Uihelper.customFont(
           text: "World State",
           fontsize: 22,

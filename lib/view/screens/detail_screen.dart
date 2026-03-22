@@ -2,15 +2,15 @@ import 'package:covidapp/constants/widget.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
-  String image, name;
-  int totalCases,
+  final String image, name;
+  final int totalCases,
       totalDeaths,
       totalRecovered,
       active,
       critical,
       todayRecovered,
       test;
-  DetailScreen({
+  const DetailScreen({
     super.key,
     required this.image,
     required this.name,
@@ -41,7 +41,7 @@ class DetailScreen extends StatelessWidget {
                 SizedBox(height: 45),
                 OptionList(title: "Country Name", trailing: name),
                 Positioned(
-                  top: -45, 
+                  top: -45,
                   left: 0,
                   right: 0,
                   child: Center(
@@ -56,6 +56,17 @@ class DetailScreen extends StatelessWidget {
           ),
           OptionList(title: "Total Cases", trailing: totalCases.toString()),
           OptionList(title: "Total Deaths", trailing: totalDeaths.toString()),
+          OptionList(
+            title: "Total recovered",
+            trailing: totalRecovered.toString(),
+          ),
+          OptionList(title: "Active Cases", trailing: active.toString()),
+          OptionList(title: "Critical Cases", trailing: critical.toString()),
+          OptionList(
+            title: "Today Recovered",
+            trailing: todayRecovered.toString(),
+          ),
+          OptionList(title: "Total Tests", trailing: test.toString()),
         ],
       ),
     );
